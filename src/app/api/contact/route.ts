@@ -1,7 +1,16 @@
 import { Resend } from "resend";
 import { NextRequest } from "next/server";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+let resendInstance: Resend | null = null;
+
+function getResend(): Resend {
+  if (!resendInstance) {
+    const key = process.env.RESEND_API_KEY;
+    if (!key) throw new Error("RESEND_API_KEY не настроен");
+    resendInstance = new Resend(key);
+  }
+  return resendInstance;
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -25,6 +34,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const resend = getResend();
     const { data, error } = await resend.emails.send({
       from: process.env.RESEND_FROM || "Platre <onboarding@resend.dev>",
       to: [contactEmail],
