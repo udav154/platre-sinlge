@@ -4,23 +4,23 @@ import { MessageCircle, PenTool, Eye, Palette } from "lucide-react";
 const services = [
   {
     icon: MessageCircle,
-    title: "Consultation",
-    description: "Initial design consultation to understand your vision, needs, and budget. We'll discuss your style preferences and create a roadmap for your project."
+    title: "Консультация",
+    description: "Инициальная консультация по дизайну, чтобы понять вашу визию, нужды и бюджет. Мы обсудим ваши предпочтения в стиле и создадим план для вашего проекта."
   },
   {
     icon: PenTool,
-    title: "Design Project",
-    description: "Complete interior design service from concept to detailed drawings. Includes space planning, material selection, and 3D visualizations."
+    title: "Проект дизайна",
+    description: "Полное обслуживание по дизайну интерьеров от концепции до детальных чертежей. Включает планирование пространства, выбор материалов и 3D визуализации."
   },
   {
     icon: Eye,
-    title: "Author's Supervision",
-    description: "On-site supervision during implementation to ensure every detail matches the design vision and maintains the highest quality standards."
+    title: "Авторское наблюдение",
+    description: "Наблюдение на месте во время реализации, чтобы убедиться, что каждая деталь соответствует видению дизайна и сохраняет высокие стандарты качества."
   },
   {
     icon: Palette,
-    title: "Styling & Decoration",
-    description: "Final styling touches including art selection, accessory placement, and styling consultation to bring your space to life."
+    title: "Стилизация и декорация",
+    description: "Финальные штрихи в стиле, включая выбор искусства, размещение аксессуаров и консультацию по стилю, чтобы придать вашему пространству жизнь."
   }
 ];
 
@@ -35,11 +35,11 @@ export function ServicesSection() {
         <div className="text-center mb-20">
           <div className="w-32 h-px bg-gradient-to-r from-transparent via-amber-600 to-transparent mx-auto mb-8"></div>
           <h2 className="font-serif text-5xl md:text-6xl tracking-wide mb-8" style={{ color: '#3d2914' }}>
-            Services
+            Услуги
           </h2>
           <div className="w-24 h-px bg-amber-600 mx-auto mb-8"></div>
           <p className="text-xl leading-relaxed max-w-3xl mx-auto" style={{ color: '#3d2914' }}>
-            Comprehensive interior design services tailored to bring your vision to life
+            Всесторонние услуги по дизайну интерьеров, адаптированные к вашим потребностям.
           </p>
         </div>
 
@@ -50,7 +50,7 @@ export function ServicesSection() {
             return (
               <Card 
                 key={index}
-                className="group text-center border-0 elegant-shadow hover:premium-shadow transition-all duration-500 transform hover:-translate-y-2 rounded-2xl"
+                className="group text-center border-0 elegant-shadow hover:premium-shadow transition-all duration-500 transform hover:-translate-y-2 rounded-2xl flex flex-col justify-between"
                 style={{ backgroundColor: '#ffffff' }}
               >
                 <CardHeader className="pb-6 pt-10">

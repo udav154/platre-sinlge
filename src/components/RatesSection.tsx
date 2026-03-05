@@ -4,31 +4,31 @@ import { Check } from "lucide-react";
 const ratesPlans = [
   {
     id: 1,
-    title: "Plan Layout + Electrical",
+    title: "Проект планировки + Электрика",
     features: [
-      "3 layout options",
-      "Finalizing one option",
-      "Drawings for electrical, lighting, and plumbing"
+      "3 варианта планировки",
+      "Финальный выбор одного варианта",
+      "Чертежи для электрики, освещения и водоснабжения"
     ]
   },
   {
     id: 2,
-    title: "Plan Layout + Electrical + Visualization + Materials Selection",
+    title: "Проект планировки + Электрика + Визуализация + Выбор материалов",
     features: [
-      "3 layout options",
-      "Finalizing one option", 
-      "Realistic visualizations",
-      "Materials selection"
+      "3 варианта планировки",
+      "Финальный выбор одного варианта", 
+      "Реалистичные визуализации",
+      "Выбор материалов"
     ]
   },
   {
     id: 3,
-    title: "Full Project",
+    title: "Полное обслуживание",
     features: [
-      "Layout solution",
-      "All necessary drawings (floor, ceiling, heated floor, electrical, plumbing, wall elevations)",
-      "Visualizations",
-      "Materials selection"
+      "Варианты планировки",
+      "Все необходимые чертежи (пол, потолок, теплый пол, электрика, водоснабжение, фасады)",
+      "Реалистичные визуализации",
+      "Выбор материалов"
     ],
     premium: true,
     badge: "Premium"
@@ -47,7 +47,7 @@ export function RatesSection() {
           </h2>
           <div className="w-24 h-px bg-amber-600 mx-auto mb-8"></div>
           <p className="text-xl leading-relaxed max-w-3xl mx-auto" style={{ color: '#3d2914' }}>
-            Choose the perfect design package tailored to your project needs and vision
+            Выберите идеальный дизайн-пакет, адаптированный к вашим потребностям.
           </p>
         </div>
 
@@ -167,7 +167,7 @@ export function RatesSection() {
         <div className="text-center mt-16">
           <div className="w-24 h-px bg-gradient-to-r from-transparent via-amber-600 to-transparent mx-auto mb-8"></div>
           <p className="text-lg italic font-serif" style={{ color: '#3d2914', opacity: 0.8 }}>
-            Each project is unique. Let&apos;s discuss your specific requirements and create a custom solution.
+            Каждый проект уникален. Давайте обсудим ваши конкретные потребности и создадим индивидуальное решение.
           </p>
         </div>
       </div>

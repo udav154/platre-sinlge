@@ -38,7 +38,7 @@ export function HeroSection() {
             Interior Design Studio
           </p>
           <p className="text-lg text-amber-800 max-w-2xl mx-auto leading-relaxed">
-            Creating timeless spaces where luxury meets comfort, and every detail tells a story of refined elegance
+            Опыт, которому можно доверять. Результаты, которые вдохновляют.
           </p>
         </div>
 
@@ -53,7 +53,7 @@ export function HeroSection() {
               border: '2px solid transparent'
             }}
           >
-            View Portfolio
+            Портфолио
           </Button>
           <Button 
             variant="outline" 
@@ -66,7 +66,7 @@ export function HeroSection() {
               borderWidth: '2px'
             }}
           >
-            Book Consultation
+            Консультация
           </Button>
         </div>
         

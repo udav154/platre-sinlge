@@ -32,27 +32,26 @@ export function AboutSection() {
               {/* Decorative line above heading */}
               <div className="w-24 h-px bg-gradient-to-r from-amber-600 to-transparent mb-8"></div>
               <h2 className="font-serif text-5xl md:text-6xl tracking-wide mb-8" style={{ color: '#3d2914' }}>
-                About Me
+                Обо мне
               </h2>
               <div className="w-20 h-px bg-amber-600 mb-10"></div>
             </div>
 
             <div className="space-y-8 leading-relaxed" style={{ color: '#3d2914' }}>
               <p className="text-xl font-light">
-                With over a decade of experience in creating timeless and sophisticated interiors, 
-                I believe that every space should tell a unique story while reflecting the personality 
-                and lifestyle of its inhabitants.
+                Здравствуйте! Меня зовут Ольга Соколова.
+                Я архитектор, дизайнер интерьеров, работаю с жилыми и коммерческими пространствами. Имею профильное образование в данной сфере. Помогаю людям создавать места, 
+                в которых действительно комфортно жить и работать.
               </p>
-              
               <p className="text-lg opacity-90">
-                My approach combines classical elegance with contemporary functionality, ensuring that 
-                each project not only looks beautiful but also enhances the daily lives of those who 
-                inhabit these spaces.
+                За годы практики убедилась в одном: каждое пространство абсолютно индивидуально, 
+                потому что создаётся для конкретного человека, его привычек, ритма жизни и представления о комфорте. 
+                Именно поэтому в начале работы для меня так важно внимательно узнать клиента, его потребности и ожидания.
               </p>
-
               <p className="text-lg opacity-90">
-                From concept to completion, I work closely with my clients to bring their vision to life, 
-                creating environments that are both aesthetically pleasing and deeply personal.
+                С годами накопился опыт, который помогает уверенно находить решения в самых разных ситуациях — 
+                от сложных перепланировок до тонких стилистических задач. 
+                Всегда стремлюсь сделать так, чтобы интерьер был не просто красивым, а по-настоящему удобным для жизни.
               </p>
             </div>
 
@@ -60,15 +59,15 @@ export function AboutSection() {
             <div className="pt-8">
               <div className="grid grid-cols-2 gap-12">
                 <div className="text-center lg:text-left">
-                  <p className="text-4xl font-serif tracking-wide mb-2" style={{ color: '#d4af37' }}>150+</p>
+                  <p className="text-4xl font-serif tracking-wide mb-2" style={{ color: '#d4af37' }}>1500+</p>
                   <p className="text-amber-800 text-sm uppercase tracking-[0.2em] font-medium">
-                    Projects Completed
+                    проектированных m<sup>2</sup>
                   </p>
                 </div>
                 <div className="text-center lg:text-left">
-                  <p className="text-4xl font-serif tracking-wide mb-2" style={{ color: '#d4af37' }}>12+</p>
+                  <p className="text-4xl font-serif tracking-wide mb-2" style={{ color: '#d4af37' }}>6+</p>
                   <p className="text-amber-800 text-sm uppercase tracking-[0.2em] font-medium">
-                    Years Experience
+                    Лет опыта
                   </p>
                 </div>
               </div>
