@@ -6,6 +6,7 @@ import useEmblaCarousel, {
 } from "embla-carousel-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
+import { useCarouselWheelScroll } from "@/hooks/use-carousel-wheel-scroll";
 import { cn } from "./utils";
 import { Button } from "./button";
 
@@ -55,11 +56,13 @@ function Carousel({
     {
       ...opts,
       axis: orientation === "horizontal" ? "x" : "y",
+      duration: 20,
     },
     plugins,
   );
   const [canScrollPrev, setCanScrollPrev] = React.useState(false);
   const [canScrollNext, setCanScrollNext] = React.useState(false);
+  const containerRef = React.useRef<HTMLDivElement>(null);
 
   const onSelect = React.useCallback((api: CarouselApi) => {
     if (!api) return;
@@ -74,6 +77,12 @@ function Carousel({
   const scrollNext = React.useCallback(() => {
     api?.scrollNext();
   }, [api]);
+
+  useCarouselWheelScroll({
+    containerRef,
+    api: api ?? undefined,
+    enabled: orientation === "horizontal",
+  });
 
   const handleKeyDown = React.useCallback(
     (event: React.KeyboardEvent<HTMLDivElement>) => {
@@ -119,11 +128,17 @@ function Carousel({
       }}
     >
       <div
+        ref={containerRef}
         onKeyDownCapture={handleKeyDown}
         className={cn("relative", className)}
         role="region"
         aria-roledescription="carousel"
         data-slot="carousel"
+        style={
+          orientation === "horizontal"
+            ? { touchAction: "pan-y", overscrollBehaviorX: "contain" }
+            : undefined
+        }
         {...props}
       >
         {children}

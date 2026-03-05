@@ -4,6 +4,7 @@ import { Card } from "./ui/card";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "./ui/dialog";
+import { Drawer, DrawerContent, DrawerTitle } from "./ui/drawer";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel";
 import { X } from "lucide-react";
 
@@ -217,79 +218,76 @@ export function PortfolioSection() {
           </Dialog>
         )}
 
-        {/* Project Detail Modal - Mobile Bottom Sheet */}
-        {isMobile && selectedProject && (
-          <div className="fixed inset-0 z-50">
-            {/* Dark backdrop */}
-            <div 
-              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-              onClick={() => setSelectedProject(null)}
-            />
-            
-            {/* Bottom sheet */}
-            <div 
-              className="absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl max-h-[92vh] overflow-y-auto animate-in slide-in-from-bottom duration-300"
+        {/* Project Detail Modal - Mobile Bottom Sheet (Vaul Drawer with swipe-to-dismiss) */}
+        {isMobile && (
+          <Drawer
+            open={!!selectedProject}
+            onOpenChange={(open) => !open && setSelectedProject(null)}
+            direction="bottom"
+            disablePreventScroll={false}
+          >
+            <DrawerContent
+              className="max-h-[92vh] rounded-t-3xl border-0 p-0 [&>div:first-child]:mb-4 [&>div:first-child]:h-1 [&>div:first-child]:w-10 [&>div:first-child]:bg-gray-300 [&>div:first-child]:rounded-full"
               style={{ backgroundColor: '#faf8f3' }}
             >
-              {/* Handle bar */}
-              <div className="flex justify-center pt-3 pb-1">
-                <div className="w-12 h-1 bg-gray-300 rounded-full"></div>
-              </div>
-
-              {/* Close button */}
+              <DrawerTitle className="sr-only">
+                {selectedProject?.title ?? 'Project details'}
+              </DrawerTitle>
               <button
-                onClick={() => setSelectedProject(null)}
-                className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/90 border border-amber-200 flex items-center justify-center"
-                style={{ color: '#3d2914' }}
-              >
-                <X size={16} />
-              </button>
+                  onClick={() => setSelectedProject(null)}
+                  className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/90 border border-amber-200 flex items-center justify-center"
+                  style={{ color: '#3d2914' }}
+                >
+                  <X size={16} />
+                </button>
 
-              <div className="p-6">
-                {/* Header */}
-                <div className="mb-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    <div className="w-6 h-px bg-amber-600"></div>
-                    <p className="text-amber-700 text-xs uppercase tracking-[0.2em]">
-                      {selectedProject.category}
-                    </p>
+                {selectedProject && (
+                  <div className="overflow-y-auto flex-1 p-6">
+                    {/* Header */}
+                    <div className="mb-6">
+                      <div className="flex items-center gap-2 mb-3">
+                        <div className="w-6 h-px bg-amber-600" />
+                        <p className="text-amber-700 text-xs uppercase tracking-[0.2em]">
+                          {selectedProject.category}
+                        </p>
+                      </div>
+                      <h2 className="font-serif text-2xl tracking-wide pr-12" style={{ color: '#3d2914' }}>
+                        {selectedProject.title}
+                      </h2>
+                    </div>
+
+                    {/* Image Carousel */}
+                    <div className="mb-8">
+                      <Carousel className="w-full">
+                        <CarouselContent>
+                          {selectedProject.images.map((image, index) => (
+                            <CarouselItem key={index}>
+                              <div className="aspect-[3/2] rounded-xl overflow-hidden elegant-shadow">
+                                <ImageWithFallback
+                                  src={image}
+                                  alt={`${selectedProject.title} - Image ${index + 1}`}
+                                  className="w-full h-full object-cover"
+                                />
+                              </div>
+                            </CarouselItem>
+                          ))}
+                        </CarouselContent>
+                        <CarouselPrevious className="left-3 w-10 h-10 border-amber-200 bg-white/90" style={{ color: '#3d2914' }} />
+                        <CarouselNext className="right-3 w-10 h-10 border-amber-200 bg-white/90" style={{ color: '#3d2914' }} />
+                      </Carousel>
+                    </div>
+
+                    {/* Project Details */}
+                    <div>
+                      <div className="w-12 h-px bg-amber-600 mb-4" />
+                      <p className="text-sm leading-relaxed" style={{ color: '#3d2914' }}>
+                        {selectedProject.description}
+                      </p>
+                    </div>
                   </div>
-                  <h2 className="font-serif text-2xl tracking-wide" style={{ color: '#3d2914' }}>
-                    {selectedProject.title}
-                  </h2>
-                </div>
-
-                {/* Image Carousel */}
-                <div className="mb-8">
-                  <Carousel className="w-full">
-                    <CarouselContent>
-                      {selectedProject.images.map((image, index) => (
-                        <CarouselItem key={index}>
-                          <div className="aspect-[3/2] rounded-xl overflow-hidden elegant-shadow">
-                            <ImageWithFallback
-                              src={image}
-                              alt={`${selectedProject.title} - Image ${index + 1}`}
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
-                        </CarouselItem>
-                      ))}
-                    </CarouselContent>
-                    <CarouselPrevious className="left-3 w-10 h-10 border-amber-200 bg-white/90" style={{ color: '#3d2914' }} />
-                    <CarouselNext className="right-3 w-10 h-10 border-amber-200 bg-white/90" style={{ color: '#3d2914' }} />
-                  </Carousel>
-                </div>
-
-                {/* Project Details */}
-                <div>
-                  <div className="w-12 h-px bg-amber-600 mb-4"></div>
-                  <p className="text-sm leading-relaxed" style={{ color: '#3d2914' }}>
-                    {selectedProject.description}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+                )}
+              </DrawerContent>
+          </Drawer>
         )}
       </div>
     </section>
