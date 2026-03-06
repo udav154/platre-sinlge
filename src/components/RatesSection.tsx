@@ -43,11 +43,11 @@ export function RatesSection() {
         <div className="text-center mb-20">
           <div className="w-32 h-px bg-gradient-to-r from-transparent via-amber-600 to-transparent mx-auto mb-8"></div>
           <h2 className="font-serif text-5xl md:text-6xl tracking-wide mb-8" style={{ color: '#3d2914' }}>
-            Rates
+            Тарифы
           </h2>
           <div className="w-24 h-px bg-amber-600 mx-auto mb-8"></div>
           <p className="text-xl leading-relaxed max-w-3xl mx-auto" style={{ color: '#3d2914' }}>
-            Выберите идеальный дизайн-пакет, адаптированный к вашим потребностям.
+            Выберите тариф, подходящий к вашим потребностям.
           </p>
         </div>
 

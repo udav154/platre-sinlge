@@ -2,12 +2,12 @@
 import { useState, useEffect } from "react";
 
 const navigationItems = [
-  { name: "About", href: "#about" },
-  { name: "Portfolio", href: "#portfolio" },
-  { name: "Services", href: "#services" },
-  { name: "Rates", href: "#rates" },
-  { name: "Testimonials", href: "#testimonials" },
-  { name: "Contacts", href: "#contacts" }
+  { name: "О нас", href: "#about" },
+  { name: "Портфолио", href: "#portfolio" },
+  { name: "Услуги", href: "#services" },
+  { name: "Цены", href: "#rates" },
+  { name: "Отзывы", href: "#testimonials" },
+  { name: "Контакты", href: "#contacts" }
 ];
 
 export function Header() {

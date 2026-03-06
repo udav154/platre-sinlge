@@ -64,7 +64,7 @@ export function ContactSection() {
           </h2>
           <div className="w-24 h-px bg-amber-600 mx-auto mb-8"></div>
           <p className="text-xl leading-relaxed max-w-3xl mx-auto" style={{ color: '#3d2914' }}>
-            Готовы преобразовать ваше пространство? Давайте обсудим ваш проект и воплотим вашу визию.
+            Готовы преобразовать ваше пространство? Давайте обсудим ваш проект и воплотим вашу идею.
           </p>
         </div>
 

@@ -30,20 +30,20 @@ export function Footer() {
           <div>
             <div className="flex items-center justify-center md:justify-start gap-2 mb-6">
               <div className="w-6 h-px bg-amber-600"></div>
-              <h4 className="text-xl font-serif tracking-wide" style={{ color: '#faf8f3' }}>Services</h4>
+              <h4 className="text-xl font-serif tracking-wide" style={{ color: '#faf8f3' }}>Услуги</h4>
             </div>
              <ul className="space-y-3">
-                <li><a href="#" className="text-white hover:text-amber-100 transition-colors text-lg">Interior Design</a></li>
-                <li><a href="#" className="text-white hover:text-amber-100 transition-colors text-lg">Consultation</a></li>
-                <li><a href="#" className="text-white hover:text-amber-100 transition-colors text-lg">Project Management</a></li>
-                <li><a href="#" className="text-white hover:text-amber-100 transition-colors text-lg">Styling</a></li>
+                <li><a href="#" className="text-white hover:text-amber-100 transition-colors text-lg">Дизайн интерьера</a></li>
+                <li><a href="#" className="text-white hover:text-amber-100 transition-colors text-lg">Консультация</a></li>
+                <li><a href="#" className="text-white hover:text-amber-100 transition-colors text-lg">Проектирование</a></li>
+                <li><a href="#" className="text-white hover:text-amber-100 transition-colors text-lg">Стилизация</a></li>
              </ul>
           </div>
           
           <div>
             <div className="flex items-center justify-center md:justify-start gap-2 mb-6">
               <div className="w-6 h-px bg-amber-600"></div>
-              <h4 className="text-xl font-serif tracking-wide" style={{ color: '#faf8f3' }}>Contact</h4>
+              <h4 className="text-xl font-serif tracking-wide" style={{ color: '#faf8f3' }}>Контакты</h4>
             </div>
             <ul className="space-y-3 text-lg text-white">
               <li>sokolovva.ole4ka@yandex.ru</li>
@@ -55,7 +55,7 @@ export function Footer() {
           <div>
             <div className="flex items-center justify-center md:justify-start gap-2 mb-6">
               <div className="w-6 h-px bg-amber-600"></div>
-              <h4 className="text-xl font-serif tracking-wide" style={{ color: '#faf8f3' }}>Follow</h4>
+              <h4 className="text-xl font-serif tracking-wide" style={{ color: '#faf8f3' }}>Следите за нами</h4>
             </div>
             <ul className="space-y-3">
               <li className="flex items-center gap-3">
@@ -105,7 +105,7 @@ export function Footer() {
         
         <div className="text-center">
           <p className="text-white text-lg">
-            &copy; 2025 PLATRE by Sokolova Olga. All rights reserved.
+            &copy; 2026 PLATRE by Sokolova Olga. Все права защищены.
           </p>
         </div>
       </div>
