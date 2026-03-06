@@ -1,5 +1,7 @@
 "use client";
+
 import { useState, useEffect } from "react";
+import { scrollToSection } from "@/lib/scroll";
 
 const navigationItems = [
   { name: "О нас", href: "#about" },
@@ -25,18 +27,8 @@ export function Header() {
   }, []);
 
   const handleNavClick = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      const headerHeight = 80; // Account for fixed header height
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - headerHeight;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
-    setIsMobileMenuOpen(false); // Close mobile menu after navigation
+    scrollToSection(href);
+    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -92,7 +84,7 @@ export function Header() {
                 
                 {/* Elegant underline on hover */}
                 <span 
-                  className="absolute -bottom-1 left-0 w-0 h-px bg-amber-600 transition-all duration-300 group-hover:w-full"
+                  className="absolute -bottom-1 left-0 w-0 h-px bg-amber-800 transition-all duration-300 group-hover:w-full"
                 ></span>
               </a>
             ))}
@@ -125,8 +117,8 @@ export function Header() {
           className="md:hidden absolute top-full left-0 right-0 premium-shadow animate-in slide-in-from-top duration-300"
           style={{ backgroundColor: 'rgba(250, 248, 243, 0.98)' }}
         >
-          <div className="max-w-7xl mx-auto px-6 py-6">
-            <nav className="flex flex-col space-y-4">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+            <nav className="flex flex-col space-y-1">
               {navigationItems.map((item) => (
                 <a
                   key={item.name}
@@ -135,7 +127,7 @@ export function Header() {
                     e.preventDefault();
                     handleNavClick(item.href);
                   }}
-                  className="font-sans text-lg tracking-wide py-3 border-b border-amber-100 transition-all duration-300 hover:pl-4"
+                  className="font-sans text-base tracking-wide py-2.5 border-b border-amber-800/30 transition-all duration-300 hover:pl-3"
                   style={{ color: '#3d2914' }}
                 >
                   {item.name}

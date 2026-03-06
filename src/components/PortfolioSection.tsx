@@ -1,6 +1,7 @@
 "use client";
 
 import { Card } from "./ui/card";
+import { SectionHeader } from "./design/SectionHeader";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "./ui/dialog";
@@ -99,30 +100,20 @@ export function PortfolioSection() {
   }, []);
 
   return (
-    <section className="py-32 px-6" style={{ backgroundColor: '#faf8f3' }}>
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-20">
-          <div className="w-32 h-px bg-gradient-to-r from-transparent via-amber-600 to-transparent mx-auto mb-8"></div>
-          <h2 className="font-serif text-5xl md:text-6xl tracking-wide mb-8" style={{ color: '#3d2914' }}>
-            Наши Проекты
-          </h2>
-          <div className="w-24 h-px bg-amber-600 mx-auto mb-8"></div>
-          {/* <p className="text-xl leading-relaxed max-w-3xl mx-auto" style={{ color: '#3d2914' }}>
-            A curated selection of recent projects showcasing timeless design and exceptional craftsmanship
-          </p> */}
-        </div>
+    <section className="py-12 md:py-12 px-6 bg-brand-cream">
+      <div className="max-w-6xl mx-auto">
+        <SectionHeader title="Наши Проекты" className="mb-8 md:mb-10" />
 
         {/* Portfolio Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
           {portfolioProjects.map((project) => (
             <Card 
               key={project.id}
-              className="group cursor-pointer overflow-hidden border-0 premium-shadow hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-3 rounded-2xl"
+              className="group cursor-pointer overflow-hidden border-0 premium-shadow hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-2 rounded-lg md:rounded-xl"
               style={{ backgroundColor: '#ffffff' }}
               onClick={() => setSelectedProject(project)}
             >
-              <div className="aspect-[4/5] overflow-hidden relative">
+              <div className="aspect-[1/1] overflow-hidden relative">
                 <ImageWithFallback
                   src={project.image}
                   alt={project.title}
@@ -131,14 +122,14 @@ export function PortfolioSection() {
                 {/* Luxury overlay on hover */}
                 <div className="absolute inset-0 bg-gradient-to-t from-amber-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
-              <div className="p-8">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-6 h-px bg-amber-600"></div>
-                  <p className="text-amber-700 text-sm uppercase tracking-[0.2em] font-medium">
+              <div className="p-2.5 md:p-3">
+                <div className="flex items-center gap-1.5 mb-0.5">
+                  <div className="w-3 h-px bg-brand-gold"></div>
+                  <p className="text-amber-700 text-[10px] uppercase tracking-[0.12em] font-medium">
                     {project.category}
                   </p>
                 </div>
-                <h3 className="font-serif text-2xl tracking-wide transition-colors" style={{ color: '#3d2914' }}>
+                <h3 className="font-serif text-sm md:text-base tracking-wide transition-colors" style={{ color: '#3d2914' }}>
                   {project.title}
                 </h3>
               </div>
@@ -163,33 +154,33 @@ export function PortfolioSection() {
                   {/* Close button */}
                   <button
                     onClick={() => setSelectedProject(null)}
-                    className="absolute top-6 right-6 z-10 w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm border border-amber-200 flex items-center justify-center hover:bg-white transition-all duration-300 elegant-shadow"
+                    className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm border border-amber-200 flex items-center justify-center hover:bg-white transition-all duration-300 elegant-shadow"
                     style={{ color: '#3d2914' }}
                   >
                     <X size={20} />
                   </button>
 
-                  <div className="p-8 md:p-12">
+                  <div className="p-6 md:p-8">
                     {/* Header */}
-                    <div className="mb-10">
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="w-8 h-px bg-amber-600"></div>
-                        <p className="text-amber-700 text-sm uppercase tracking-[0.2em]">
+                    <div className="mb-6 md:mb-8">
+                      <div className="flex items-center gap-2 mb-3">
+                        <div className="w-6 h-px bg-brand-gold"></div>
+                        <p className="text-amber-700 text-xs uppercase tracking-[0.2em]">
                           {selectedProject.category}
                         </p>
                       </div>
-                      <h2 className="font-serif text-4xl md:text-5xl tracking-wide" style={{ color: '#3d2914' }}>
+                      <h2 className="font-serif text-2xl md:text-3xl tracking-wide" style={{ color: '#3d2914' }}>
                         {selectedProject.title}
                       </h2>
                     </div>
 
                     {/* Image Carousel */}
-                    <div className="mb-10">
+                    <div className="mb-6 md:mb-8">
                       <Carousel className="w-full">
                         <CarouselContent>
                           {selectedProject.images.map((image, index) => (
                             <CarouselItem key={index}>
-                              <div className="rounded-2xl overflow-hidden premium-shadow max-h-[400px] h-full w-fit">
+                              <div className="rounded-xl overflow-hidden premium-shadow max-h-[340px] h-full w-fit">
                                 <ImageWithFallback
                                   src={image}
                                   alt={`${selectedProject.title} - Image ${index + 1}`}
@@ -199,15 +190,15 @@ export function PortfolioSection() {
                             </CarouselItem>
                           ))}
                         </CarouselContent>
-                        <CarouselPrevious className="left-6 w-14 h-14 border-amber-200 bg-white/90 backdrop-blur-sm hover:bg-white transition-all duration-300" style={{ color: '#3d2914' }} />
-                        <CarouselNext className="right-6 w-14 h-14 border-amber-200 bg-white/90 backdrop-blur-sm hover:bg-white transition-all duration-300" style={{ color: '#3d2914' }} />
+                        <CarouselPrevious className="left-4 w-10 h-10 border-amber-200 bg-white/90 backdrop-blur-sm hover:bg-white transition-all duration-300" style={{ color: '#3d2914' }} />
+                        <CarouselNext className="right-4 w-10 h-10 border-amber-200 bg-white/90 backdrop-blur-sm hover:bg-white transition-all duration-300" style={{ color: '#3d2914' }} />
                       </Carousel>
                     </div>
 
                     {/* Project Details */}
                     <div className="max-w-4xl mx-auto">
-                      <div className="w-16 h-px bg-amber-600 mb-6 mx-auto"></div>
-                      <p className="text-lg leading-relaxed text-center" style={{ color: '#3d2914' }}>
+                      <div className="w-12 h-px bg-brand-gold mb-4 mx-auto"></div>
+                      <p className="text-base leading-relaxed text-center" style={{ color: '#3d2914' }}>
                         {selectedProject.description}
                       </p>
                     </div>
@@ -242,22 +233,22 @@ export function PortfolioSection() {
                 </button>
 
                 {selectedProject && (
-                  <div className="overflow-y-auto flex-1 p-6">
+                  <div className="overflow-y-auto flex-1 p-5">
                     {/* Header */}
-                    <div className="mb-6">
-                      <div className="flex items-center gap-2 mb-3">
-                        <div className="w-6 h-px bg-amber-600" />
+                    <div className="mb-5">
+                      <div className="flex items-center gap-2 mb-2">
+                        <div className="w-5 h-px bg-brand-gold" />
                         <p className="text-amber-700 text-xs uppercase tracking-[0.2em]">
                           {selectedProject.category}
                         </p>
                       </div>
-                      <h2 className="font-serif text-2xl tracking-wide pr-12" style={{ color: '#3d2914' }}>
+                      <h2 className="font-serif text-xl tracking-wide pr-12" style={{ color: '#3d2914' }}>
                         {selectedProject.title}
                       </h2>
                     </div>
 
                     {/* Image Carousel */}
-                    <div className="mb-8">
+                    <div className="mb-6">
                       <Carousel className="w-full">
                         <CarouselContent>
                           {selectedProject.images.map((image, index) => (
@@ -279,7 +270,7 @@ export function PortfolioSection() {
 
                     {/* Project Details */}
                     <div>
-                      <div className="w-12 h-px bg-amber-600 mb-4" />
+                      <div className="w-10 h-px bg-brand-gold mb-3" />
                       <p className="text-sm leading-relaxed" style={{ color: '#3d2914' }}>
                         {selectedProject.description}
                       </p>

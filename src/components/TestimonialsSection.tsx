@@ -1,6 +1,7 @@
 "use client";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel";
 import { Card, CardContent } from "./ui/card";
+import { SectionHeader } from "./design/SectionHeader";
 import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
 
@@ -63,19 +64,17 @@ export function TestimonialsSection() {
   }, [api]);
 
   return (
-    <section className="py-32 px-6" style={{ backgroundColor: '#faf8f3' }}>
+    <section className="py-12 md:py-12 px-6 bg-brand-cream">
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-20">
-          <div className="w-32 h-px bg-gradient-to-r from-transparent via-amber-600 to-transparent mx-auto mb-8"></div>
-          <h2 className="font-serif text-5xl md:text-6xl tracking-wide mb-8" style={{ color: '#3d2914' }}>
-            Отзывы
-          </h2>
-          <div className="w-24 h-px bg-amber-600 mx-auto mb-8"></div>
-          <p className="text-xl leading-relaxed max-w-3xl mx-auto" style={{ color: '#3d2914' }}>
-            Что говорят наши клиенты об опыте работы с <span className="font-serif text-amber-700">PLATRE</span>?
-          </p>
-        </div>
+        <SectionHeader
+          title="Отзывы"
+          subtitle={
+            <>
+              Что говорят наши клиенты об опыте работы с <span className="font-serif text-amber-700">PLATRE</span>?
+            </>
+          }
+          className="mb-8 md:mb-10"
+        />
 
         {/* Testimonials Carousel */}
         <div className="relative">
@@ -85,23 +84,23 @@ export function TestimonialsSection() {
           >
             <CarouselContent>
               {testimonials.map((testimonial) => (
-                <CarouselItem key={testimonial.id} className="md:basis-1/2 px-4">
-                  <Card className="border-0 premium2-shadow bg-white rounded-2xl h-full">
-                    <CardContent className="p-6 md:p-10 flex flex-col justify-between h-full">
-                      <div className="mb-6 md:mb-8">
-                        <Quote className="w-8 h-8 md:w-12 md:h-12 mb-4 md:mb-6" style={{ color: '#d4af37' }} />
-                        <p className="leading-relaxed text-lg md:text-xl italic font-serif tracking-wide" style={{ color: '#3d2914' }}>
+                <CarouselItem key={testimonial.id} className="md:basis-1/2 px-2 md:px-3">
+                  <Card className="border-0 premium2-shadow bg-white rounded-lg md:rounded-xl h-full">
+                    <CardContent className="p-3 md:p-5 flex flex-col justify-between h-full">
+                      <div className="mb-2 md:mb-4">
+                        <Quote className="w-5 h-5 md:w-8 md:h-8 mb-2 md:mb-4 text-brand-gold" />
+                        <p className="leading-relaxed text-sm md:text-base italic font-serif tracking-wide text-brand-dark">
                           "{testimonial.quote}"
                         </p>
                       </div>
-                      <div className="border-t pt-6 md:pt-8" style={{ borderColor: '#e8e0d4' }}>
-                        <div className="flex items-center gap-3 mb-2">
-                          <div className="w-6 md:w-8 h-px bg-amber-600"></div>
-                          <p className="font-medium text-base md:text-lg" style={{ color: '#3d2914' }}>
+                      <div className="border-t pt-2.5 md:pt-4 border-amber-800/25">
+                        <div className="flex items-center gap-2 mb-1">
+                          <div className="w-5 h-px bg-brand-gold"></div>
+                          <p className="font-medium text-sm md:text-base text-brand-dark">
                             {testimonial.author}
                           </p>
                         </div>
-                        <p className="text-amber-700 text-xs md:text-sm uppercase tracking-[0.2em] font-medium">
+                        <p className="text-amber-700 text-[10px] md:text-xs uppercase tracking-[0.15em] font-medium">
                           {testimonial.role}
                         </p>
                       </div>
@@ -115,12 +114,10 @@ export function TestimonialsSection() {
             {!isMobile && (
               <>
                 <CarouselPrevious 
-                  className="border-2 text-amber-700 hover:bg-amber-50 w-12 h-12 transition-all duration-300" 
-                  style={{ borderColor: '#d4af37' }}
+                  className="border-2 border-brand-gold text-amber-700 hover:bg-amber-50 w-10 h-10 transition-all duration-300" 
                 />
                 <CarouselNext 
-                  className="border-2 text-amber-700 hover:bg-amber-50 w-12 h-12 transition-all duration-300" 
-                  style={{ borderColor: '#d4af37' }}
+                  className="border-2 border-brand-gold text-amber-700 hover:bg-amber-50 w-10 h-10 transition-all duration-300" 
                 />
               </>
             )}
@@ -128,15 +125,11 @@ export function TestimonialsSection() {
 
           {/* Mobile Navigation - Bottom controls */}
           {isMobile && (
-            <div className="flex items-center justify-center gap-6 mt-8">
+            <div className="flex items-center justify-center gap-3 mt-5">
               <button
                 onClick={() => api?.scrollPrev()}
                 disabled={current === 1}
-                className="flex items-center justify-center w-12 h-12 rounded-full border-2 transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed"
-                style={{ 
-                  borderColor: '#d4af37',
-                  color: '#d4af37'
-                }}
+                className="flex items-center justify-center w-9 h-9 rounded-full border-2 border-brand-gold text-brand-gold transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
@@ -149,7 +142,7 @@ export function TestimonialsSection() {
                     onClick={() => api?.scrollTo(index)}
                     className={`w-2 h-2 rounded-full transition-all duration-300 ${
                       index + 1 === current 
-                        ? 'bg-amber-600 scale-125' 
+                        ? 'bg-amber-700 scale-125' 
                         : 'bg-amber-300 hover:bg-amber-400'
                     }`}
                   />
@@ -159,11 +152,7 @@ export function TestimonialsSection() {
               <button
                 onClick={() => api?.scrollNext()}
                 disabled={current === count}
-                className="flex items-center justify-center w-12 h-12 rounded-full border-2 transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed"
-                style={{ 
-                  borderColor: '#d4af37',
-                  color: '#d4af37'
-                }}
+                className="flex items-center justify-center w-9 h-9 rounded-full border-2 border-brand-gold text-brand-gold transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>

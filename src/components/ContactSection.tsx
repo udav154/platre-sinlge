@@ -1,6 +1,7 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+import { SectionHeader } from "./design/SectionHeader";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
@@ -51,38 +52,29 @@ export function ContactSection() {
   };
 
   return (
-    <section className="py-32 px-6 luxury-gradient relative">
-      {/* Subtle texture overlay */}
-      <div className="absolute inset-0 luxury-texture"></div>
-      
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Header */}
-        <div className="text-center mb-20">
-          <div className="w-32 h-px bg-gradient-to-r from-transparent via-amber-600 to-transparent mx-auto mb-8"></div>
-          <h2 className="font-serif text-5xl md:text-6xl tracking-wide mb-8" style={{ color: '#3d2914' }}>
-            Связаться с нами
-          </h2>
-          <div className="w-24 h-px bg-amber-600 mx-auto mb-8"></div>
-          <p className="text-xl leading-relaxed max-w-3xl mx-auto" style={{ color: '#3d2914' }}>
-            Готовы преобразовать ваше пространство? Давайте обсудим ваш проект и воплотим вашу идею.
-          </p>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-20">
+    <section className="py-12 md:py-12 px-4 sm:px-6 luxury-gradient relative overflow-x-hidden">
+      <div className="absolute inset-0 luxury-texture" />
+      <div className="max-w-6xl mx-auto relative z-10 w-full min-w-0">
+        <SectionHeader
+          title="Связаться с нами"
+          subtitle="Готовы преобразовать ваше пространство? Давайте обсудим ваш проект и воплотим вашу идею."
+          className="mb-8 md:mb-10"
+        />
+        <div className="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-10 min-w-0">
           {/* Contact Form */}
-          <Card className="border-0 premium-shadow rounded-2xl" style={{ backgroundColor: '#ffffff' }}>
-            <CardHeader className="pb-8 pt-10">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-8 h-px bg-amber-600"></div>
-                <CardTitle className="font-serif text-3xl tracking-wide font-medium" style={{ color: '#3d2914' }}>
+          <Card className="border-0 premium-shadow rounded-lg md:rounded-xl min-w-0 overflow-hidden bg-white">
+            <CardHeader className="pb-0 pt-4 md:pt-6 px-4 sm:px-5 md:px-6">
+              <div className="flex items-center gap-2 mb-2 md:mb-3">
+                <div className="w-6 h-px bg-brand-gold"></div>
+                <CardTitle className="font-serif text-lg md:text-xl tracking-wide font-medium text-brand-dark">
                   Отправить сообщение
                 </CardTitle>
               </div>
             </CardHeader>
-            <CardContent className="px-10 pb-10">
-              <form onSubmit={handleSubmit} className="space-y-8">
+            <CardContent className="px-4 sm:px-5 md:px-6 pb-5 md:pb-6">
+              <form onSubmit={handleSubmit} className="space-y-4 md:space-y-5">
                 <div>
-                  <Label htmlFor="name" className="text-lg font-medium mb-3 block" style={{ color: '#3d2914' }}>
+                  <Label htmlFor="name" className="text-sm md:text-base font-medium mb-1.5 block text-brand-dark">
                     Имя
                   </Label>
                   <Input
@@ -91,17 +83,13 @@ export function ContactSection() {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="mt-2 border-2 rounded-xl py-4 px-6 text-lg transition-all duration-300"
-                    style={{ 
-                      borderColor: '#e8e0d4',
-                      backgroundColor: '#faf8f3'
-                    }}
+                    className="mt-1.5 border-2 border-brand-beige bg-brand-cream rounded-lg py-2.5 px-3 md:py-3 md:px-4 text-sm md:text-base transition-all duration-300"
                     placeholder="Ваше полное имя"
                   />
                 </div>
 
                 <div>
-                  <Label htmlFor="email" className="text-lg font-medium mb-3 block" style={{ color: '#3d2914' }}>
+                  <Label htmlFor="email" className="text-sm md:text-base font-medium mb-1.5 block text-brand-dark">
                     Email адрес
                   </Label>
                   <Input
@@ -111,17 +99,13 @@ export function ContactSection() {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="mt-2 border-2 rounded-xl py-4 px-6 text-lg transition-all duration-300"
-                    style={{ 
-                      borderColor: '#e8e0d4',
-                      backgroundColor: '#faf8f3'
-                    }}
+                    className="mt-1.5 border-2 border-brand-beige bg-brand-cream rounded-lg py-2.5 px-3 md:py-3 md:px-4 text-sm md:text-base transition-all duration-300"
                     placeholder="your.email@example.com"
                   />
                 </div>
 
                 <div>
-                  <Label htmlFor="message" className="text-lg font-medium mb-3 block" style={{ color: '#3d2914' }}>
+                  <Label htmlFor="message" className="text-sm md:text-base font-medium mb-1.5 block text-brand-dark">
                     Сообщение
                   </Label>
                   <Textarea
@@ -130,12 +114,8 @@ export function ContactSection() {
                     value={formData.message}
                     onChange={handleInputChange}
                     required
-                    rows={6}
-                    className="mt-2 border-2 rounded-xl py-4 px-6 text-lg resize-none transition-all duration-300"
-                    style={{ 
-                      borderColor: '#e8e0d4',
-                      backgroundColor: '#faf8f3'
-                    }}
+                    rows={4}
+                    className="mt-1.5 border-2 border-brand-beige bg-brand-cream rounded-lg py-2.5 px-3 md:py-3 md:px-4 text-sm md:text-base resize-none transition-all duration-300"
                     placeholder="Расскажите нам о вашем проекте..."
                   />
                 </div>
@@ -143,11 +123,7 @@ export function ContactSection() {
                 <Button 
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-6 rounded-xl text-lg font-medium tracking-wide transition-all duration-500 elegant-shadow hover:premium-shadow transform hover:-translate-y-1 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
-                  style={{ 
-                    backgroundColor: '#3d2914', 
-                    color: '#faf8f3'
-                  }}
+                  className="w-full py-3 md:py-4 rounded-lg text-sm md:text-base font-medium tracking-wide transition-all duration-500 elegant-shadow hover:premium-shadow transform hover:-translate-y-1 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none bg-brand-dark text-brand-cream"
                 >
                   {isSubmitting ? (
                     <>
@@ -163,119 +139,118 @@ export function ContactSection() {
           </Card>
 
           {/* Contact Information */}
-          <div className="space-y-10">
+          <div className="space-y-4 md:space-y-6 min-w-0">
             {/* Contact Details */}
-            <Card className="border-0 elegant-shadow rounded-2xl" style={{ backgroundColor: '#ffffff' }}>
-              <CardContent className="p-10">
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="w-8 h-px bg-amber-600"></div>
-                  <h3 className="font-serif text-2xl tracking-wide font-medium" style={{ color: '#3d2914' }}>
+            <Card className="border-0 elegant-shadow rounded-lg md:rounded-xl min-w-0 overflow-hidden bg-white">
+              <CardContent className="p-4 md:p-5">
+                <div className="flex items-center gap-2 mb-4 md:mb-5">
+                  <div className="w-6 h-px bg-brand-gold"></div>
+                  <h3 className="font-serif text-lg md:text-xl tracking-wide font-medium text-brand-dark">
                     Контактная информация
                   </h3>
                 </div>
-                <div className="space-y-6">
-                  <div className="flex items-center space-x-6">
-                    <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: '#f7f3e9' }}>
-                      <Mail className="w-6 h-6" style={{ color: '#d4af37' }} />
+                <div className="space-y-3 md:space-y-4">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="w-9 h-9 md:w-10 md:h-10 flex-shrink-0 rounded-full flex items-center justify-center bg-brand-cream-alt">
+                      <Mail className="w-4 h-4 md:w-5 md:h-5 text-brand-gold" />
                     </div>
-                    <span className="text-lg" style={{ color: '#3d2914' }}>sokolovva.ole4ka@yandex.ru</span>
+                    <span className="text-sm md:text-base break-words min-w-0 text-brand-dark">sokolovva.ole4ka@yandex.ru</span>
                   </div>
-                  <div className="flex items-center space-x-6">
-                    <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: '#f7f3e9' }}>
-                      <Phone className="w-6 h-6" style={{ color: '#d4af37' }} />
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="w-9 h-9 md:w-10 md:h-10 flex-shrink-0 rounded-full flex items-center justify-center bg-brand-cream-alt">
+                      <Phone className="w-4 h-4 md:w-5 md:h-5 text-brand-gold" />
                     </div>
-                    <span className="text-lg" style={{ color: '#3d2914' }}>+7 (920) 366-7478</span>
+                    <span className="text-sm md:text-base break-words min-w-0 text-brand-dark">+7 (920) 366-7478</span>
                   </div>
-                  <div className="flex items-center space-x-6">
-                    <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: '#f7f3e9' }}>
-                      <MapPin className="w-6 h-6" style={{ color: '#d4af37' }} />
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="w-9 h-9 md:w-10 md:h-10 flex-shrink-0 rounded-full flex items-center justify-center bg-brand-cream-alt">
+                      <MapPin className="w-4 h-4 md:w-5 md:h-5 text-brand-gold" />
                     </div>
-                    <span className="text-lg" style={{ color: '#3d2914' }}>Иваново, Россия</span>
+                    <span className="text-sm md:text-base break-words min-w-0 text-brand-dark">Иваново, Россия</span>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
             {/* Social Links */}
-            <Card className="border-0 elegant-shadow rounded-2xl" style={{ backgroundColor: '#ffffff' }}>
-              <CardContent className="p-10">
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="w-8 h-px bg-amber-600"></div>
-                  <h3 className="font-serif text-2xl tracking-wide font-medium" style={{ color: '#3d2914' }}>
+            <Card className="border-0 elegant-shadow rounded-lg md:rounded-xl min-w-0 overflow-hidden bg-white">
+              <CardContent className="p-4 md:p-5">
+                <div className="flex items-center gap-2 mb-4 md:mb-5">
+                  <div className="w-6 h-px bg-brand-gold"></div>
+                  <h3 className="font-serif text-lg md:text-xl tracking-wide font-medium text-brand-dark">
                     Следите за нашими работами
                   </h3>
                 </div>
-                <div className="space-y-6">
+                <div className="space-y-3 md:space-y-4">
                   <a 
                     href="https://instagram.com/platre.interiors" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-6 group transition-all duration-300 hover:transform hover:translate-x-2"
+                    className="flex items-center gap-3 min-w-0 group transition-all duration-300 hover:transform hover:translate-x-2"
                   >
-                    <div className="w-12 h-12 rounded-full flex items-center justify-center transition-colors duration-300" 
-                         style={{ backgroundColor: '#f7f3e9' }}>
-                      <Instagram className="w-6 h-6" style={{ color: '#d4af37' }} />
+                    <div className="w-9 h-9 md:w-10 md:h-10 rounded-full flex items-center justify-center transition-colors duration-300 bg-brand-cream-alt">
+                      <Instagram className="w-4 h-4 md:w-5 md:h-5 text-brand-gold" />
                     </div>
-                    <span className="text-lg" style={{ color: '#3d2914' }}>
+                    <span className="text-sm md:text-base break-words min-w-0 text-brand-dark">
                       @platre.interiors
-                      <ExternalLink className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity ml-1 inline-block" style={{ color: '#d4af37' }} />
+                      <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity ml-1 inline-block flex-shrink-0 text-brand-gold" />
                     </span>
                   </a>
                   <a
                     href="https://pin.it/1gZHSAta9"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-6 group transition-all duration-300 hover:transform hover:translate-x-2"
+                    className="flex items-center gap-3 min-w-0 group transition-all duration-300 hover:transform hover:translate-x-2"
                   >
-                    <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: '#f7f3e9' }}>
-                      <div className="w-6 h-6 rounded border-2 flex items-center justify-center" style={{ borderColor: '#d4af37' }}>
-                        <span className="text-sm font-bold" style={{ color: '#d4af37' }}>P</span>
+                    <div className="w-9 h-9 md:w-10 md:h-10 rounded-full flex items-center justify-center bg-brand-cream-alt">
+                      <div className="w-4 h-4 md:w-5 md:h-5 rounded border-2 border-brand-gold flex items-center justify-center">
+                        <span className="text-xs font-bold text-brand-gold">P</span>
                       </div>
                     </div>
-                    <span className="text-lg" style={{ color: '#3d2914' }}>Pinterest</span>
-                    <ExternalLink className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: '#d4af37' }} />
+                    <span className="text-sm md:text-base break-words min-w-0 text-brand-dark">Pinterest</span>
+                    <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0 text-brand-gold" />
                   </a>
                   <a
                     href="https://t.me/platre_interiors"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-6 group transition-all duration-300 hover:transform hover:translate-x-2"
+                    className="flex items-center gap-3 min-w-0 group transition-all duration-300 hover:transform hover:translate-x-2"
                   >
-                    <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: '#f7f3e9' }}>
+                    <div className="w-9 h-9 md:w-10 md:h-10 rounded-full flex items-center justify-center bg-brand-cream-alt">
                       {/* Simple Telegram icon using SVG */}
-                      <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24" fill="none">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none">
                         <circle cx="12" cy="12" r="12" fill="#d4af37" fillOpacity="0.15"/>
                         <path d="M8.37 12.86l3.65 2.71c.36.27.86.11.99-.34l2.58-8.22c.14-.46-.3-.87-.73-.73l-10.03 3.52c-.45.16-.47.78-.03.97l2.54 1.02 5.89-3.45c.15-.09.31.12.17.23l-4.77 4.04c-.27.22-.22.64.09.8z" fill="#d4af37"/>
                       </svg>
                     </div>
-                    <span className="text-lg" style={{ color: '#3d2914' }}>Telegram</span>
-                    <ExternalLink className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: '#d4af37' }} />
+                    <span className="text-sm md:text-base break-words min-w-0 text-brand-dark">Telegram</span>
+                    <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0 text-brand-gold" />
                   </a>
                 </div>
               </CardContent>
             </Card>
 
             {/* Office Hours */}
-            <Card className="border-0 elegant-shadow rounded-2xl" style={{ backgroundColor: '#ffffff' }}>
-              <CardContent className="p-10">
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="w-8 h-px bg-amber-600"></div>
-                  <h3 className="font-serif text-2xl tracking-wide font-medium" style={{ color: '#3d2914' }}>
+            <Card className="border-0 elegant-shadow rounded-lg md:rounded-xl min-w-0 overflow-hidden bg-white">
+              <CardContent className="p-4 md:p-5">
+                <div className="flex items-center gap-2 mb-4 md:mb-5">
+                  <div className="w-6 h-px bg-brand-gold"></div>
+                  <h3 className="font-serif text-lg md:text-xl tracking-wide font-medium text-brand-dark">
                     Часы работы
                   </h3>
                 </div>
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center py-2">
-                    <span className="text-lg" style={{ color: '#3d2914' }}>Понедельник - Пятница</span>
-                    <span className="text-lg font-medium" style={{ color: '#d4af37' }}>9:00 AM - 6:00 PM</span>
+                <div className="space-y-2 md:space-y-3">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 py-1.5 min-w-0">
+                    <span className="text-sm md:text-base text-brand-dark">Понедельник - Пятница</span>
+                    <span className="text-sm md:text-base font-medium shrink-0 text-brand-gold">9:00 AM - 6:00 PM</span>
                   </div>
-                  <div className="flex justify-between items-center py-2">
-                    <span className="text-lg" style={{ color: '#3d2914' }}>Суббота</span>
-                    <span className="text-lg font-medium" style={{ color: '#d4af37' }}>10:00 AM - 4:00 PM</span>
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 py-1.5 min-w-0">
+                    <span className="text-sm md:text-base text-brand-dark">Суббота</span>
+                    <span className="text-sm md:text-base font-medium shrink-0 text-brand-gold">10:00 AM - 4:00 PM</span>
                   </div>
-                  <div className="flex justify-between items-center py-2">
-                    <span className="text-lg" style={{ color: '#3d2914' }}>Воскресенье</span>
-                    <span className="text-lg font-medium" style={{ color: '#d4af37' }}>Closed</span>
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 py-1.5 min-w-0">
+                    <span className="text-sm md:text-base text-brand-dark">Воскресенье</span>
+                    <span className="text-sm md:text-base font-medium shrink-0 text-brand-gold">Closed</span>
                   </div>
                 </div>
               </CardContent>

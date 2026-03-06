@@ -1,4 +1,8 @@
+"use client";
+
 import { Button } from "./ui/button";
+import { DecorativeLine } from "./design/DecorativeLine";
+import { scrollToSection } from "@/lib/scroll";
 
 export function HeroSection() {
   return (
@@ -11,72 +15,57 @@ export function HeroSection() {
         backgroundAttachment: 'fixed'
       }}
     >
-      {/* Elegant overlay pattern */}
-      <div className="absolute inset-0 luxury-texture opacity-60"></div>
+      {/* Elegant overlay pattern - z-0 to stay behind content on small viewports */}
+      <div className="absolute inset-0 z-0 luxury-texture opacity-60 pointer-events-none"></div>
       
-      <div className="text-center max-w-5xl mx-auto relative z-10">
-        {/* Decorative top line */}
-        <div className="w-32 h-px bg-gradient-to-r from-transparent via-amber-600 to-transparent mx-auto mb-12"></div>
-        
-        {/* Logo */}
-        <div className="mb-12">
-          <h1 className="font-serif text-7xl md:text-9xl tracking-[0.15em] mb-6" style={{ color: '#3d2914' }}>
+      <div className="text-center max-w-5xl mx-auto relative z-10 pt-24 md:pt-28 pb-16 md:pb-0">
+        <DecorativeLine variant="gradient" className="mb-6 sm:mb-10 md:mb-12" />
+        <div className="mb-6 md:mb-12">
+          <h1 className="font-serif text-5xl sm:text-6xl md:text-9xl tracking-[0.1em] md:tracking-[0.15em] mb-4 md:mb-6 text-brand-dark">
             PLATRE
           </h1>
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <div className="w-8 h-px bg-amber-600"></div>
-            <p className="text-amber-700 text-xl tracking-[0.3em] uppercase font-medium">
+          <div className="flex items-center justify-center gap-4 mb-2 md:mb-4">
+            <DecorativeLine variant="short" />
+            <p className="text-amber-700 text-sm md:text-xl tracking-[0.2em] md:tracking-[0.3em] uppercase font-medium">
               by Sokolova Olga
             </p>
-            <div className="w-8 h-px bg-amber-600"></div>
+            <DecorativeLine variant="short" />
           </div>
         </div>
-
-        {/* Tagline */}
-        <div className="mb-16">
-          <p className="text-3xl md:text-4xl font-light italic font-serif tracking-wide mb-8" style={{ color: '#3d2914' }}>
+        <div className="mb-8 md:mb-16">
+          <p className="text-xl sm:text-2xl md:text-4xl font-light italic font-serif tracking-wide mb-4 md:mb-8 text-brand-dark">
             Interior Design Studio
           </p>
-          <p className="text-lg text-amber-800 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg text-amber-800 max-w-2xl mx-auto leading-relaxed px-2">
             Опыт, которому можно доверять. Результаты, которые вдохновляют.
           </p>
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+        <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center">
           <Button 
             size="lg" 
-            className="px-12 py-7 rounded-full text-lg font-medium tracking-wide transition-all duration-500 elegant-shadow hover:premium-shadow transform hover:-translate-y-1"
-            style={{ 
-              backgroundColor: '#3d2914', 
-              color: '#faf8f3',
-              border: '2px solid transparent'
-            }}
+            className="px-8 md:px-12 py-5 md:py-7 rounded-full text-base md:text-lg font-medium tracking-wide transition-all duration-500 elegant-shadow hover:premium-shadow transform hover:-translate-y-1 bg-brand-dark text-brand-cream border-2 border-transparent"
+            onClick={() => scrollToSection("#portfolio")}
           >
             Портфолио
           </Button>
           <Button 
             variant="outline" 
             size="lg"
-            className="px-12 py-7 rounded-full text-lg font-medium tracking-wide transition-all duration-500 elegant-shadow hover:premium-shadow transform hover:-translate-y-1"
-            style={{ 
-              borderColor: '#d4af37', 
-              color: '#3d2914',
-              backgroundColor: 'rgba(250, 248, 243, 0.8)',
-              borderWidth: '2px'
-            }}
+            className="px-8 md:px-12 py-5 md:py-7 rounded-full text-base md:text-lg font-medium tracking-wide transition-all duration-500 elegant-shadow hover:premium-shadow transform hover:-translate-y-1 border-2 border-brand-gold text-brand-dark bg-brand-cream/80"
+            onClick={() => scrollToSection("#contacts")}
           >
             Консультация
           </Button>
         </div>
         
-        {/* Decorative bottom line */}
-        <div className="w-32 h-px bg-gradient-to-r from-transparent via-amber-600 to-transparent mx-auto mt-16"></div>
-      </div>
+        <DecorativeLine variant="gradient" className="mt-8 md:mt-16" />
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-px h-20 bg-gradient-to-b from-amber-600 to-transparent"></div>
+        {/* Scroll indicator - in content flow to avoid overlap on short screens */}
+        <div className="mt-8 flex justify-center animate-bounce">
+          <div className="w-px h-20 bg-gradient-to-b from-amber-800 to-transparent"></div>
+        </div>
       </div>
     </section>
   );

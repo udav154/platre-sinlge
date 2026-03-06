@@ -1,6 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
+  safelist: [
+    // Brand colors — ensure all variants are included (conditional cn() may not be detected)
+    "bg-brand-cream", "bg-brand-cream/80", "bg-brand-cream-alt", "bg-brand-beige", "bg-brand-gold", "bg-brand-gold/10", "bg-brand-gold/20", "bg-brand-gold/30", "bg-brand-gold/35", "bg-brand-gold/40",
+    "bg-brand-footer", "bg-white",
+    "border-brand-gold", "border-brand-gold/20", "border-brand-gold/30", "border-brand-gold/35", "border-brand-beige", "border-brand-beige/30",
+    "text-brand-dark", "text-brand-cream", "text-brand-gold", "text-brand-gold-muted", "text-white",
+  ],
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
@@ -18,6 +25,15 @@ module.exports = {
     },
     extend: {
       colors: {
+        brand: {
+          dark: "var(--brand-dark)",
+          cream: "var(--brand-cream)",
+          "cream-alt": "var(--brand-cream-alt)",
+          gold: "var(--brand-gold)",
+          "gold-muted": "var(--brand-gold-muted)",
+          beige: "var(--brand-beige)",
+          footer: "var(--brand-footer)",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
